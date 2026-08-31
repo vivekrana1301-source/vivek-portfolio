@@ -21,13 +21,12 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section className="py-20 px-6 bg-gradient-to-r from-gray-100 to-gray-200">
-      
-      <h2 className="text-4xl font-bold text-center mb-14">
+    <section className="bg-gradient-to-r from-gray-100 to-gray-200 px-4 py-20 sm:px-6">
+      <h2 className="mb-14 text-center text-3xl font-bold sm:text-4xl">
         My Projects
       </h2>
 
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-10 max-w-6xl mx-auto">
+      <div className="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
         {projects.map((project, index) => (
           <div

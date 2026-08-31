@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import About from '../components/About';
 import Hero from '../components/Hero';
+import Experience from '../components/Experience';
 import Skill from '../components/Skill';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -19,6 +20,10 @@ const Home = () => {
 
         <section id="hero">
             <Hero/>    
+        </section>
+
+        <section id="experience">
+            <Experience/>
         </section>
 
         <section id="skill">

@@ -1,34 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const links = [
+    { href: "#hero", label: "Home" },
+    { href: "#experience", label: "Experience" },
+    { href: "#skill", label: "Skills" },
+    { href: "#projects", label: "Projects" },
+    { href: "#contact", label: "Contact" },
+  ];
+
   return (
-    <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-10 py-4 bg-gray-900/80 backdrop-blur-md shadow-xl">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-gray-900/80 backdrop-blur-md shadow-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-10">
+        <h1 className="text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent sm:text-3xl">
+          Vivek
+        </h1>
 
-      {/* Logo */}
-      <h1 className="text-3xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
-        Vivek
-      </h1>
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className="inline-flex items-center justify-center rounded-md border border-white/20 p-2 text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-400 md:hidden"
+          aria-label="Toggle navigation"
+        >
+          <span className="sr-only">Open menu</span>
+          <div className="flex flex-col gap-1.5">
+            <span className="block h-0.5 w-6 rounded bg-white" />
+            <span className="block h-0.5 w-6 rounded bg-white" />
+            <span className="block h-0.5 w-6 rounded bg-white" />
+          </div>
+        </button>
 
-      {/* Links */}
-     <div className="flex gap-8 text-lg">
+        <div className="hidden items-center gap-6 text-lg md:flex">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-white transition duration-300 hover:-translate-y-1 hover:text-blue-400"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
 
-  <a href="#hero" className="text-white transition transform hover:-translate-y-1 hover:text-blue-400 duration-300">
-    Home
-  </a>
-
-  <a href="#skill" className="text-white transition transform hover:-translate-y-1 hover:text-blue-400 duration-300">
-    Skills
-  </a>
-
-  <a href="#projects" className="text-white transition transform hover:-translate-y-1 hover:text-blue-400 duration-300">
-    Projects
-  </a>
-
-  <a href="#contact" className="text-white transition transform hover:-translate-y-1 hover:text-blue-400 duration-300">
-    Contact
-  </a>
-
-</div>
+      {isOpen && (
+        <div className="border-t border-white/10 bg-gray-900/90 px-4 py-3 md:hidden">
+          <div className="flex flex-col gap-3 text-base">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-white transition hover:text-blue-400"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

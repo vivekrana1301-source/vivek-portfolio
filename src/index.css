@@ -1,4 +1,59 @@
 @import "tailwindcss";
-html{
+
+:root {
+  font-family: Inter, "Segoe UI", sans-serif;
+  color: #111827;
+  background: #eff3f8;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
   scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #eff3f8;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.skill-marquee {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  animation: marquee 18s linear infinite;
+}
+
+.skill-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
 }

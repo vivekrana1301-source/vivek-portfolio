@@ -1,71 +1,55 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import profile from "../assets/tttt.png";
 
 const Hero = () => {
   return (
-    <section className="flex items-center justify-between px-10 py-20 bg-gradient-to-r from-gray-100 to-gray-200">
+    <section className="bg-gradient-to-r from-gray-100 to-gray-200 px-4 pb-16 pt-28 sm:px-6 lg:px-10">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 lg:flex-row">
+        <div className="w-full max-w-2xl text-center lg:text-left">
+          <h1 className="text-2xl font-semibold text-blue-500 sm:text-3xl">
+            HELLO
+          </h1>
 
-      {/* Left Content */}
-      <div className="max-w-lg flex flex-col gap-4">
+          <h2 className="mt-4 text-4xl font-bold leading-tight bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent sm:text-5xl lg:text-6xl">
+            I'm Vivek Rana
+          </h2>
 
-        <h1 className="text-xl text-blue-500 font-semibold">
-          HELLO
-        </h1>
+          <h3 className="mt-4 text-xl text-gray-600 sm:text-2xl">
+            MERN Stack Web Developer
+          </h3>
 
-        <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-          I'm Vivek  Rana
-        </h2>
+          <p className="mt-5 text-base text-gray-600 sm:text-lg">
+            Full Stack Developer with 1 year of hands-on experience building responsive and scalable web applications using React, JavaScript, Node.js, Express, and MongoDB. I focus on creating secure, user-friendly applications and continuously improving my development skills.
+          </p>
 
-        <h3 className="text-2xl text-gray-600">
-          MERN Stack Web Developer
-        </h3>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap lg:justify-start">
+            <a href="#contact" className="rounded-lg bg-blue-500 px-6 py-3 text-center text-lg font-medium text-white transition hover:bg-blue-600">
+              Let's Talk
+            </a>
 
-       <p className="text-gray-500">
-  A Full Stack Developer with a strong foundation in React, JavaScript,
-  and modern UI development, along with backend experience in Node.js,
-  Express, and databases. I focus on building scalable, secure, and
-  responsive web applications while continuously learning new technologies.
-</p>
+            <a href="#projects" className="rounded-lg border border-blue-500 px-6 py-3 text-center text-lg font-medium text-blue-500 transition hover:bg-blue-500 hover:text-white">
+              View Projects
+            </a>
 
-        {/* Buttons */}
-        <div className="flex gap-4 mt-4">
-
-          <a href='#contact' className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
-            Let's Talk
-          </a>
-
-          <a href='#projects' className="border border-blue-500 text-blue-500 px-6 py-2 rounded-lg hover:bg-blue-500 hover:text-white transition">
-            View Projects
-          </a>
-
-          <a
-            href="https://drive.google.com/file/d/10T8OncxpxBjocabhtJYncdfKvd5xSJj_/view?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-black transition"
-          >
-            View Resume
-          </a>
-
+            <a
+              href="https://drive.google.com/file/d/17Y-GdMSZQqtGg33ZBRMqYw3xp0j-RnIg/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-gray-800 px-6 py-3 text-center text-lg font-medium text-white transition hover:bg-black"
+            >
+              View Resume
+            </a>
+          </div>
         </div>
 
-        {/* Social Icons */}
-
-
+        <div className="flex w-full justify-center lg:w-auto">
+          <div className="h-64 w-64 overflow-hidden rounded-[45%] border-4 border-blue-400 shadow-lg transition-all duration-300 hover:scale-105 sm:h-80 sm:w-80">
+            <img src={profile} alt="Vivek" className="h-full w-full object-cover" />
+          </div>
+        </div>
       </div>
-
-      {/* Right Side Image */}
-      <div className="w-80 h-80 rounded-full overflow-hidden shadow-lg border-4 border-blue-400 hover:scale-105 transition-all duration-300 ">
-        <img
-          src={profile}
-          alt="Vivek"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
     </section>
   );
-}
+};
 
 export default Hero;
