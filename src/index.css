@@ -1,12 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  font-family: Inter, "Segoe UI", sans-serif;
-  color: #111827;
-  background: #eff3f8;
+  font-family: "Segoe UI", sans-serif;
+  color: #17221e;
+  background: #f7f5ef;
   line-height: 1.5;
   font-weight: 400;
+  --theme-bg: #f7f5ef;
+  --theme-surface: #ffffff;
+  --theme-text: #17221e;
+  --theme-muted: #64706a;
+  --theme-accent: #3d7058;
+  --theme-accent-hover: #2f5946;
+  --theme-border: #dce4dc;
+  --theme-glow: rgba(61, 112, 88, .16);
 }
+
+[data-theme="dark"] { --theme-bg: #0b1210; --theme-surface: #15221c; --theme-text: #edf4ed; --theme-muted: #a8b7ad; --theme-accent: #92c9a6; --theme-accent-hover: #b6e4c3; --theme-border: #34453b; --theme-glow: rgba(146, 201, 166, .14); }
 
 * {
   box-sizing: border-box;
@@ -16,10 +26,83 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+.portfolio-app, body {
   margin: 0;
   min-width: 320px;
-  background: #eff3f8;
+  background: var(--theme-bg);
+}
+
+.portfolio-app { min-height: 100vh; color: var(--theme-text); background: var(--theme-bg); transition: color .25s ease, background-color .25s ease; }
+.portfolio-app .theme-toggle { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border: 1px solid var(--theme-border); border-radius: 999px; color: var(--theme-text); background: var(--theme-surface); cursor: pointer; transition: transform .2s ease, color .2s ease, background .2s ease; }
+.portfolio-app .theme-toggle:hover { color: var(--theme-accent); background: var(--theme-bg); transform: rotate(12deg); }
+.portfolio-app section { background: var(--theme-bg) !important; color: var(--theme-text); transition: background-color .25s ease, color .25s ease; }
+.portfolio-app nav { background: color-mix(in srgb, var(--theme-surface) 92%, transparent) !important; border-color: var(--theme-border); }
+.portfolio-app .bg-gradient-to-r { background: var(--theme-bg) !important; }
+.portfolio-app .bg-gray-900\/80, .portfolio-app .bg-gray-900\/90 { background-color: color-mix(in srgb, var(--theme-surface) 96%, transparent) !important; }
+.portfolio-app .bg-white, .portfolio-app .bg-white\/80 { background-color: var(--theme-surface) !important; }
+.portfolio-app .text-gray-900, .portfolio-app .text-gray-800, .portfolio-app .text-gray-700, .portfolio-app .text-gray-600, .portfolio-app .text-gray-500 { color: var(--theme-text) !important; }
+.portfolio-app .text-gray-500, .portfolio-app .text-gray-600 { color: var(--theme-muted) !important; }
+.portfolio-app .text-blue-500, .portfolio-app .text-blue-600, .portfolio-app .border-blue-500, .portfolio-app .border-blue-400 { color: var(--theme-accent) !important; border-color: var(--theme-accent) !important; }
+.portfolio-app .bg-blue-500 { background-color: var(--theme-accent) !important; }
+.portfolio-app .hover\:bg-blue-600:hover { background-color: var(--theme-accent-hover) !important; }
+.portfolio-app .border-gray-200, .portfolio-app .border-gray-300 { border-color: var(--theme-border) !important; }
+.portfolio-app input, .portfolio-app textarea { color: var(--theme-text); background: var(--theme-surface); border-color: var(--theme-border); }
+.portfolio-app input::placeholder, .portfolio-app textarea::placeholder { color: var(--theme-muted); }
+.portfolio-app .text-white { color: #fff !important; }
+.portfolio-app .bg-gray-800 { background-color: var(--theme-text) !important; }
+.portfolio-app .bg-gradient-to-r.from-blue-500 { background-image: none !important; color: var(--theme-accent) !important; }
+.portfolio-app footer { background: var(--theme-surface) !important; border-top: 1px solid var(--theme-border); }
+.portfolio-app .text-black\/70, .portfolio-app .text-black\/80 { color: var(--theme-muted) !important; }
+.portfolio-app .text-black { color: var(--theme-text) !important; }
+.portfolio-app .bg-indigo-50, .portfolio-app .bg-blue-50 { background: color-mix(in srgb, var(--theme-accent) 9%, var(--theme-surface)) !important; }
+.portfolio-app .bg-indigo-100 { background: color-mix(in srgb, var(--theme-accent) 16%, var(--theme-surface)) !important; }
+.portfolio-app .text-indigo-600, .portfolio-app .text-indigo-700 { color: var(--theme-accent) !important; }
+.portfolio-app .border-indigo-200 { border-color: var(--theme-border) !important; }
+
+.portfolio-app[data-theme="dark"] .bg-\[\#1b1b1b\] { background: #202b26 !important; }
+.portfolio-app[data-theme="dark"] .hover\:bg-\[\#202020\]:hover { background: #29362f !important; }
+.portfolio-app[data-theme="dark"] .text-white\/80 { color: #dcebe0 !important; }
+.portfolio-app[data-theme="dark"] .border-white\/10, .portfolio-app[data-theme="dark"] .border-white\/20 { border-color: var(--theme-border) !important; }
+.portfolio-app[data-theme="dark"] .bg-white, .portfolio-app[data-theme="dark"] .bg-white\/80 { background-color: #19221f !important; }
+.portfolio-app[data-theme="dark"] .bg-linear-to-br { background-image: none !important; background-color: #19221f !important; }
+.portfolio-app[data-theme="dark"] .from-blue-50, .portfolio-app[data-theme="dark"] .to-indigo-50 { --tw-gradient-from: #19221f !important; --tw-gradient-to: #19221f !important; }
+.portfolio-app[data-theme="dark"] .bg-indigo-100 { background-color: #2a4034 !important; }
+.portfolio-app[data-theme="dark"] .text-indigo-700, .portfolio-app[data-theme="dark"] .text-indigo-600 { color: #b6e4c3 !important; }
+.portfolio-app[data-theme="dark"] .text-black, .portfolio-app[data-theme="dark"] .text-black\/70, .portfolio-app[data-theme="dark"] .text-black\/80 { color: var(--theme-text) !important; }
+
+.portfolio-app { overflow-x: hidden; }
+.portfolio-app .site-nav { border-bottom: 1px solid var(--theme-border); box-shadow: 0 10px 35px rgba(0, 0, 0, .08); }
+.portfolio-app .site-nav h1 { letter-spacing: -.04em; color: var(--theme-text); }
+.portfolio-app .site-nav a { transition: color .2s ease, transform .2s ease; }
+.portfolio-app .site-nav a:hover { color: var(--theme-accent) !important; }
+.portfolio-app .hero-section { position: relative; isolation: isolate; min-height: min(720px, 100vh); display: flex; align-items: center; }
+.portfolio-app .hero-section::before { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none; opacity: .22; background-image: linear-gradient(var(--theme-border) 1px, transparent 1px), linear-gradient(90deg, var(--theme-border) 1px, transparent 1px); background-size: 72px 72px; mask-image: linear-gradient(to bottom, rgba(0,0,0,.7), transparent 80%); }
+.portfolio-app[data-theme="dark"] .hero-section { background: radial-gradient(circle at 80% 42%, var(--theme-glow), transparent 24rem), var(--theme-bg) !important; }
+.portfolio-app .hero-title { font-family: Georgia, serif; letter-spacing: -.045em; background-image: linear-gradient(110deg, var(--theme-accent), var(--theme-accent-hover)) !important; }
+.portfolio-app .hero-section h1 { letter-spacing: .12em; font-size: .85rem; }
+.portfolio-app .hero-section h3 { color: var(--theme-text) !important; font-weight: 500; }
+.portfolio-app .hero-section p { max-width: 38rem; color: var(--theme-muted) !important; line-height: 1.8; }
+.portfolio-app .hero-section img { filter: saturate(.85); }
+.portfolio-app .hero-section .rounded-\[45\%\] { border-color: var(--theme-accent) !important; box-shadow: 0 0 0 12px var(--theme-glow), 0 18px 45px rgba(0,0,0,.18); }
+.portfolio-app .hero-section .rounded-lg { border-radius: 5px; font-size: .95rem; font-weight: 600; }
+.portfolio-app section > .max-w-6xl, .portfolio-app section > .max-w-7xl { position: relative; }
+.portfolio-app section h2 { font-family: Georgia, serif; letter-spacing: -.035em; }
+.portfolio-app .shadow-lg, .portfolio-app .shadow-2xl, .portfolio-app .shadow-xl { box-shadow: 0 18px 45px rgba(0, 0, 0, .12); }
+.portfolio-app .rounded-2xl { border-radius: 10px; }
+.portfolio-app .rounded-lg { border-radius: 6px; }
+.portfolio-app .bg-white, .portfolio-app .bg-white\/80 { border: 1px solid var(--theme-border); }
+.portfolio-app .bg-blue-500 { color: var(--theme-bg) !important; }
+.portfolio-app .bg-black { background-color: var(--theme-text) !important; }
+.portfolio-app .text-white { color: var(--theme-bg) !important; }
+.portfolio-app .site-nav .text-white { color: var(--theme-text) !important; }
+.portfolio-app .site-nav .bg-white\/10:hover { background: var(--theme-glow); }
+.portfolio-app input:focus, .portfolio-app textarea:focus { outline: 2px solid var(--theme-accent); outline-offset: 1px; box-shadow: none !important; }
+@media (max-width: 768px) {
+  .portfolio-app .hero-section { min-height: auto; padding-top: 8rem; }
+  .portfolio-app .hero-section .text-center { text-align: left; }
+  .portfolio-app .hero-section .items-center { align-items: flex-start; }
+  .portfolio-app .hero-section .justify-center { justify-content: flex-start; }
+  .portfolio-app .hero-section .rounded-\[45\%\] { margin-inline: auto; }
 }
 
 a {
@@ -56,4 +139,207 @@ img {
   html {
     font-size: 14px;
   }
+}
+
+/* Reference-inspired dark canvas and quiet editorial spacing. */
+.portfolio-app[data-theme="dark"] {
+  background-color: #090b0a;
+  background-image: radial-gradient(circle at 12% 18%, rgba(255,255,255,.72) 0 1px, transparent 1.5px), radial-gradient(circle at 72% 13%, rgba(255,255,255,.55) 0 1px, transparent 1.5px), radial-gradient(circle at 88% 44%, rgba(146,201,166,.5) 0 1px, transparent 1.5px), radial-gradient(circle at 40% 78%, rgba(255,255,255,.5) 0 1px, transparent 1.5px), radial-gradient(circle at 58% 31%, rgba(255,255,255,.6) 0 1px, transparent 1.5px);
+  background-size: 290px 240px, 410px 330px, 360px 300px, 470px 390px, 520px 420px;
+}
+.portfolio-app[data-theme="dark"]::before {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  inset: -30%;
+  pointer-events: none;
+  opacity: .95;
+  background-image: radial-gradient(circle at 4% 18%, #bde9c8 0 1.5px, transparent 2px), radial-gradient(circle at 17% 72%, #d9f5df 0 1px, transparent 1.5px), radial-gradient(circle at 29% 34%, #a9d9b6 0 1px, transparent 1.5px), radial-gradient(circle at 42% 82%, #d9f5df 0 1.4px, transparent 2px), radial-gradient(circle at 55% 20%, #bde9c8 0 1px, transparent 1.5px), radial-gradient(circle at 69% 62%, #d9f5df 0 1.3px, transparent 2px), radial-gradient(circle at 82% 27%, #a9d9b6 0 1px, transparent 1.5px), radial-gradient(circle at 94% 78%, #d9f5df 0 1.5px, transparent 2px);
+  background-size: 260px 220px, 310px 270px, 370px 310px, 430px 360px, 290px 260px, 390px 330px, 340px 290px, 470px 380px;
+  animation: spark-drift 28s linear infinite;
+}
+@keyframes spark-drift {
+  from { transform: translate3d(0, 0, 0) rotate(0deg); }
+  to { transform: translate3d(3%, 2%, 0) rotate(1deg); }
+}
+.portfolio-app[data-theme="dark"] section { background: transparent !important; }
+.portfolio-app[data-theme="dark"] .site-nav { background: rgba(9,11,10,.82) !important; backdrop-filter: blur(18px); }
+.portfolio-app[data-theme="dark"] .hero-section { min-height: min(700px, 100vh); padding-top: 9rem; padding-bottom: 7rem; }
+.portfolio-app[data-theme="dark"] .hero-section::after { content: ""; position: absolute; left: 2%; right: 2%; bottom: 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+.portfolio-app[data-theme="dark"] .hero-section .max-w-7xl { width: min(1120px, 90vw); }
+.portfolio-app[data-theme="dark"] .hero-title { color: var(--theme-accent) !important; }
+.portfolio-app[data-theme="dark"] .hero-section h3 { color: #d6e1d9 !important; }
+.portfolio-app[data-theme="dark"] .hero-section .bg-blue-500 { box-shadow: 0 8px 25px rgba(146,201,166,.16); }
+.portfolio-app[data-theme="dark"] section:not(.hero-section) { border-bottom: 1px solid rgba(255,255,255,.08); }
+.portfolio-app[data-theme="dark"] section:not(.hero-section) > div { position: relative; }
+.portfolio-app[data-theme="dark"] .bg-white, .portfolio-app[data-theme="dark"] .bg-white\/80, .portfolio-app[data-theme="dark"] .bg-linear-to-br { background: rgba(18,22,20,.88) !important; box-shadow: 0 15px 35px rgba(0,0,0,.2); }
+.portfolio-app[data-theme="dark"] .bg-indigo-100 { background: rgba(146,201,166,.13) !important; }
+.portfolio-app[data-theme="dark"] .bg-\[\#eef1f5\], .portfolio-app[data-theme="dark"] .bg-\[\#f1f4f8\] { background: rgba(18,22,20,.82) !important; border-color: rgba(255,255,255,.13) !important; }
+.portfolio-app[data-theme="dark"] .site-nav .nav-links a { color: #a8b0ab !important; font-size: .85rem; }
+.portfolio-app[data-theme="dark"] .site-nav .nav-links a:hover { color: var(--theme-accent) !important; }
+.portfolio-app[data-theme="dark"] .site-nav .nav-actions { order: 3; }
+.portfolio-app[data-theme="dark"] .site-nav .nav-links { order: 2; }
+.portfolio-app[data-theme="dark"] .site-nav > div { gap: 2rem; }
+.portfolio-app[data-theme="light"] .hero-section { min-height: min(680px, 100vh); }
+.portfolio-app[data-theme="light"] section:not(.hero-section) { border-bottom: 1px solid var(--theme-border); }
+@media (min-width: 769px) {
+  .portfolio-app .site-nav .nav-actions { order: 3; }
+  .portfolio-app .site-nav .nav-links { order: 2; }
+  .portfolio-app .site-nav > div { gap: 2rem; }
+}
+
+/* Keep the dark canvas continuous from the document root through every section. */
+html:has(.portfolio-app[data-theme="dark"]),
+html:has(.portfolio-app[data-theme="dark"]) body,
+html:has(.portfolio-app[data-theme="dark"]) #root {
+  background: #090b0a !important;
+}
+
+.portfolio-app[data-theme="dark"] {
+  background: #090b0a !important;
+  color: #edf4ed;
+}
+.portfolio-app[data-theme="dark"] section,
+.portfolio-app[data-theme="dark"] footer {
+  background: transparent !important;
+}
+.portfolio-app[data-theme="dark"] .hero-section,
+.portfolio-app[data-theme="dark"] #experience,
+.portfolio-app[data-theme="dark"] #skill,
+.portfolio-app[data-theme="dark"] #projects,
+.portfolio-app[data-theme="dark"] #contact,
+.portfolio-app[data-theme="dark"] #footer {
+  background: transparent !important;
+  border-color: rgba(255,255,255,.1) !important;
+}
+.portfolio-app[data-theme="dark"] #experience .bg-linear-to-br,
+.portfolio-app[data-theme="dark"] #projects .bg-white,
+.portfolio-app[data-theme="dark"] #contact .bg-white\/80 {
+  background: rgba(13,16,14,.92) !important;
+  border: 1px solid rgba(146,201,166,.22) !important;
+  color: #edf4ed !important;
+}
+.portfolio-app[data-theme="dark"] #experience > section,
+.portfolio-app[data-theme="dark"] #experience > section.bg-white {
+  background: #090b0a !important;
+}
+.portfolio-app[data-theme="dark"] #experience > section > div {
+  background: transparent !important;
+}
+.portfolio-app[data-theme="dark"] #experience > section {
+  position: relative;
+  isolation: isolate;
+}
+.portfolio-app[data-theme="dark"] #experience > section::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: .8;
+  background-image: radial-gradient(circle at 7% 22%, #c9efd2 0 1.5px, transparent 2px), radial-gradient(circle at 19% 78%, #dff7e4 0 1px, transparent 1.5px), radial-gradient(circle at 34% 11%, #9bc9a7 0 1px, transparent 1.5px), radial-gradient(circle at 67% 83%, #dff7e4 0 1.3px, transparent 2px), radial-gradient(circle at 82% 18%, #b3dfbd 0 1.5px, transparent 2px), radial-gradient(circle at 94% 67%, #dff7e4 0 1px, transparent 1.5px);
+  background-size: 260px 210px, 340px 280px, 420px 320px, 370px 300px, 310px 260px, 460px 350px;
+  animation: experience-sparks 22s linear infinite;
+}
+.portfolio-app[data-theme="dark"] #experience > section > div {
+  position: relative;
+  z-index: 1;
+}
+@keyframes experience-sparks {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(2.5%, -1.5%, 0); }
+}
+.portfolio-app[data-theme="dark"] #skill .bg-\[\#eef1f5\],
+.portfolio-app[data-theme="dark"] #skill .bg-\[\#f1f4f8\] {
+  background: rgba(13,16,14,.92) !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+}
+.portfolio-app[data-theme="dark"] #skill .bg-\[\#1b1b1b\] {
+  background: #151c18 !important;
+  border-color: rgba(146,201,166,.2) !important;
+}
+.portfolio-app[data-theme="dark"] #experience h2,
+.portfolio-app[data-theme="dark"] #projects h2,
+.portfolio-app[data-theme="dark"] #contact h2,
+.portfolio-app[data-theme="dark"] #skill h2 {
+  color: #edf4ed !important;
+}
+.portfolio-app[data-theme="dark"] #experience h3,
+.portfolio-app[data-theme="dark"] #experience h4,
+.portfolio-app[data-theme="dark"] #projects h3,
+.portfolio-app[data-theme="dark"] #contact h3 {
+  color: #edf4ed !important;
+}
+.portfolio-app[data-theme="dark"] #experience p,
+.portfolio-app[data-theme="dark"] #experience li,
+.portfolio-app[data-theme="dark"] #projects p,
+.portfolio-app[data-theme="dark"] #contact input,
+.portfolio-app[data-theme="dark"] #contact textarea {
+  color: #a8b7ad !important;
+}
+
+/* One simple dark canvas for every section; the shared canvas supplies the motion. */
+.portfolio-app[data-theme="dark"],
+.portfolio-app[data-theme="dark"] section,
+.portfolio-app[data-theme="dark"] footer,
+.portfolio-app[data-theme="dark"] #experience > section {
+  background: #090b0a !important;
+  background-image: none !important;
+}
+.portfolio-app[data-theme="dark"] #experience > section::before { display: none; }
+.portfolio-app[data-theme="dark"] .hero-section::before { display: none; }
+
+/* Dark mode uses the starfield as the only component background. */
+.portfolio-app[data-theme="dark"] .site-nav,
+.portfolio-app[data-theme="dark"] footer,
+.portfolio-app[data-theme="dark"] #experience .bg-linear-to-br,
+.portfolio-app[data-theme="dark"] #projects .bg-white,
+.portfolio-app[data-theme="dark"] #contact .bg-white\/80,
+.portfolio-app[data-theme="dark"] #skill .bg-\[\#eef1f5\],
+.portfolio-app[data-theme="dark"] #skill .bg-\[\#f1f4f8\],
+.portfolio-app[data-theme="dark"] #skill .bg-\[\#1b1b1b\],
+.portfolio-app[data-theme="dark"] #skill .bg-\[\#202020\],
+.portfolio-app[data-theme="dark"] .bg-indigo-100 {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+.portfolio-app[data-theme="dark"] #experience .bg-linear-to-br,
+.portfolio-app[data-theme="dark"] #projects .bg-white,
+.portfolio-app[data-theme="dark"] #contact .bg-white\/80,
+.portfolio-app[data-theme="dark"] #skill .bg-\[\#eef1f5\],
+.portfolio-app[data-theme="dark"] #skill .bg-\[\#f1f4f8\] {
+  box-shadow: none !important;
+}
+.portfolio-app[data-theme="dark"] input,
+.portfolio-app[data-theme="dark"] textarea {
+  background: transparent !important;
+}
+.portfolio-app[data-theme="dark"] .experience-card {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+.portfolio-app[data-theme="dark"] section,
+.portfolio-app[data-theme="dark"] footer,
+.portfolio-app[data-theme="dark"] nav {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.starfield {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.portfolio-app[data-theme="dark"] .starfield { opacity: 1; mix-blend-mode: screen; filter: drop-shadow(0 0 2px rgba(180, 235, 194, .45)); }
+.portfolio-app > :not(.starfield) { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .starfield { opacity: .9 !important; }
+  .portfolio-app[data-theme="dark"]::before { animation: none; }
 }

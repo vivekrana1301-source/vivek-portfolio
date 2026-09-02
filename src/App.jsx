@@ -1,17 +1,21 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Skill from './components/Skill';
-import SkillComp from './components/SkillComp';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import { useState } from 'react';
 import Home from './pages/Home';
-import Projects from './components/Projects';
+import './App.css';
+import Starfield from './components/Starfield';
 
 const App = () => {
+  const [theme, setTheme] = useState(() => localStorage.getItem('portfolio-theme') || 'dark');
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('portfolio-theme', nextTheme);
+    setTheme(nextTheme);
+  };
+
   return (
-    <div>
-      <Home/> 
+    <div className="portfolio-app" data-theme={theme}>
+      <Starfield />
+      <Home theme={theme} toggleTheme={toggleTheme} />
     </div>
   );
 }

@@ -3,19 +3,19 @@ import profile from "../assets/tttt.png";
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-to-r from-gray-100 to-gray-200 px-4 pb-16 pt-28 sm:px-6 lg:px-10">
+    <section className="hero-section bg-linear-to-r from-gray-100 to-gray-200 px-4 pb-16 pt-28 sm:px-6 lg:px-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 lg:flex-row">
         <div className="w-full max-w-2xl text-center lg:text-left">
           <h1 className="text-2xl font-semibold text-blue-500 sm:text-3xl">
             HELLO
           </h1>
 
-          <h2 className="mt-4 text-4xl font-bold leading-tight bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent sm:text-5xl lg:text-6xl">
+          <h2 className="hero-title mt-4 text-4xl font-bold leading-tight bg-linear-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent sm:text-5xl lg:text-6xl">
             I'm Vivek Rana
           </h2>
 
           <h3 className="mt-4 text-xl text-gray-600 sm:text-2xl">
-            MERN Stack Web Developer
+            Full Stack Developer
           </h3>
 
           <p className="mt-5 text-base text-gray-600 sm:text-lg">

@@ -8,14 +8,14 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Projects from '../components/Projects';
 
-const Home = () => {
+const Home = ({ theme, toggleTheme }) => {
   return (
     <div>
 
         <section id="navbar"
         
         >
-            <Navbar/>
+            <Navbar theme={theme} toggleTheme={toggleTheme}/>
         </section>
 
         <section id="hero">

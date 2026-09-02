@@ -46,7 +46,7 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.id}
-              className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-indigo-200 rounded-lg p-6 shadow-lg hover:shadow-xl transition"
+              className="experience-card bg-linear-to-br from-blue-50 to-indigo-50 border-2 border-indigo-200 rounded-lg p-6 shadow-lg hover:shadow-xl transition"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}

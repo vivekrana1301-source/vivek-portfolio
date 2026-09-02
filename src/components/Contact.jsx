@@ -46,7 +46,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-gray-100 to-gray-200 px-4 py-20 sm:px-6">
+    <section className="bg-linear-to-r from-gray-100 to-gray-200 px-4 py-20 sm:px-6">
       <h2 className="mb-12 text-center text-3xl font-bold sm:text-4xl">
         Contact Me
       </h2>

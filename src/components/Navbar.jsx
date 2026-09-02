@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { FaMoon, FaSun } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({ theme, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
@@ -12,27 +13,32 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-gray-900/80 backdrop-blur-md shadow-xl">
+    <nav className="site-nav fixed top-0 left-0 w-full z-50 bg-gray-900/80 backdrop-blur-md shadow-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-10">
-        <h1 className="text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent sm:text-3xl">
+        <h1 className="text-2xl font-extrabold sm:text-3xl">
           Vivek
         </h1>
 
-        <button
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          className="inline-flex items-center justify-center rounded-md border border-white/20 p-2 text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-400 md:hidden"
-          aria-label="Toggle navigation"
-        >
-          <span className="sr-only">Open menu</span>
-          <div className="flex flex-col gap-1.5">
-            <span className="block h-0.5 w-6 rounded bg-white" />
-            <span className="block h-0.5 w-6 rounded bg-white" />
-            <span className="block h-0.5 w-6 rounded bg-white" />
-          </div>
-        </button>
+        <div className="nav-actions flex items-center gap-3">
+          <button type="button" onClick={toggleTheme} className="theme-toggle" aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"} title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}>
+            {theme === "light" ? <FaMoon /> : <FaSun />}
+          </button>
+          <button
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            className="inline-flex items-center justify-center rounded-md border border-white/20 p-2 text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-400 md:hidden"
+            aria-label="Toggle navigation"
+          >
+            <span className="sr-only">Open menu</span>
+            <div className="flex flex-col gap-1.5">
+              <span className="block h-0.5 w-6 rounded bg-white" />
+              <span className="block h-0.5 w-6 rounded bg-white" />
+              <span className="block h-0.5 w-6 rounded bg-white" />
+            </div>
+          </button>
+        </div>
 
-        <div className="hidden items-center gap-6 text-lg md:flex">
+        <div className="nav-links hidden items-center gap-6 text-lg md:flex">
           {links.map((link) => (
             <a
               key={link.href}
