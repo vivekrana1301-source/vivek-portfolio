@@ -31,7 +31,7 @@ const Experience = () => {
   ];
 
   return (
-    <section className="py-16 px-4 md:px-8 bg-white">
+    <section className="py-16 px-4 md:px-8 bg-transparent">
       <div className="max-w-6xl mx-auto">
         <motion.h2 
           className="text-4xl font-bold text-gray-900 mb-12 text-center"

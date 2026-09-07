@@ -219,35 +219,8 @@ html:has(.portfolio-app[data-theme="dark"]) #root {
   border: 1px solid rgba(146,201,166,.22) !important;
   color: #edf4ed !important;
 }
-.portfolio-app[data-theme="dark"] #experience > section,
-.portfolio-app[data-theme="dark"] #experience > section.bg-white {
-  background: #090b0a !important;
-}
 .portfolio-app[data-theme="dark"] #experience > section > div {
   background: transparent !important;
-}
-.portfolio-app[data-theme="dark"] #experience > section {
-  position: relative;
-  isolation: isolate;
-}
-.portfolio-app[data-theme="dark"] #experience > section::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  pointer-events: none;
-  opacity: .8;
-  background-image: radial-gradient(circle at 7% 22%, #c9efd2 0 1.5px, transparent 2px), radial-gradient(circle at 19% 78%, #dff7e4 0 1px, transparent 1.5px), radial-gradient(circle at 34% 11%, #9bc9a7 0 1px, transparent 1.5px), radial-gradient(circle at 67% 83%, #dff7e4 0 1.3px, transparent 2px), radial-gradient(circle at 82% 18%, #b3dfbd 0 1.5px, transparent 2px), radial-gradient(circle at 94% 67%, #dff7e4 0 1px, transparent 1.5px);
-  background-size: 260px 210px, 340px 280px, 420px 320px, 370px 300px, 310px 260px, 460px 350px;
-  animation: experience-sparks 22s linear infinite;
-}
-.portfolio-app[data-theme="dark"] #experience > section > div {
-  position: relative;
-  z-index: 1;
-}
-@keyframes experience-sparks {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(2.5%, -1.5%, 0); }
 }
 .portfolio-app[data-theme="dark"] #skill .bg-\[\#eef1f5\],
 .portfolio-app[data-theme="dark"] #skill .bg-\[\#f1f4f8\] {
@@ -283,7 +256,7 @@ html:has(.portfolio-app[data-theme="dark"]) #root {
 .portfolio-app[data-theme="dark"] section,
 .portfolio-app[data-theme="dark"] footer,
 .portfolio-app[data-theme="dark"] #experience > section {
-  background: #090b0a !important;
+  background: transparent !important;
   background-image: none !important;
 }
 .portfolio-app[data-theme="dark"] #experience > section::before { display: none; }
@@ -315,8 +288,8 @@ html:has(.portfolio-app[data-theme="dark"]) #root {
   background: transparent !important;
 }
 .portfolio-app[data-theme="dark"] .experience-card {
-  background: transparent !important;
-  background-color: transparent !important;
+  background: #000 !important;
+  background-color: #000 !important;
   background-image: none !important;
   box-shadow: none !important;
 }
@@ -325,6 +298,21 @@ html:has(.portfolio-app[data-theme="dark"]) #root {
 .portfolio-app[data-theme="dark"] nav {
   background: transparent !important;
   background-color: transparent !important;
+}
+
+.portfolio-app[data-theme="dark"] #experience,
+.portfolio-app[data-theme="dark"] #experience > section,
+.portfolio-app[data-theme="dark"] #experience > section::before {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.portfolio-app[data-theme="dark"] #experience .experience-card {
+  background: rgba(255, 255, 255, .04) !important;
+  background-color: rgba(255, 255, 255, .04) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .starfield {
