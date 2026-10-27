@@ -337,7 +337,7 @@ html:has(.portfolio-app[data-theme="dark"]) #root {
   opacity: 0;
   transition: opacity .3s ease;
 }
-.portfolio-app[data-theme="dark"] .starfield { opacity: 1; mix-blend-mode: screen; filter: drop-shadow(0 0 2px rgba(180, 235, 194, .45)); }
+.portfolio-app[data-theme="dark"] .starfield { opacity: .82; mix-blend-mode: screen; filter: drop-shadow(0 0 1px rgba(180, 235, 194, .3)); }
 .portfolio-app > :not(.starfield) { position: relative; z-index: 1; }
 @media (prefers-reduced-motion: reduce) {
   .starfield { opacity: .9 !important; }

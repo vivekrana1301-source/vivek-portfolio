@@ -19,7 +19,11 @@ const Hero = () => {
           </h3>
 
           <p className="mt-5 text-base text-gray-600 sm:text-lg">
-            Full Stack Developer with 1 year of hands-on experience building responsive and scalable web applications using React, JavaScript, Node.js, Express, and MongoDB. I focus on creating secure, user-friendly applications and continuously improving my development skills.
+Full Stack Developer with industry experience in developing and maintaining web applications. Experienced in translating
+requirements into practical software solutions, integrating frontend and backend systems, and resolving technical challenges.
+Skilled in API development, database management, and secure authentication, with a focus on code quality, application
+reliability, and maintainable software architecture. Committed to collaborating effectively with development teams to
+deliver solutions aligned with business requirements.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap lg:justify-start">

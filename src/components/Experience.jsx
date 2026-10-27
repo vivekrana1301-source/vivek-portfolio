@@ -6,7 +6,7 @@ const Experience = () => {
     {
       id: 1,
       company: "Techennia Info Solutions",
-      role: "Full Stack Developer Intern",
+      role: "Full Stack Developer",
       duration: "April 2026 - Present",
       responsibilities: [
         "Contributing to a full-stack Hospital Management System spanning patient-facing and administrative workflows across three internal modules",
